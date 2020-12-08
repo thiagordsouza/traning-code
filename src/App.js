@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
 import "./styles.css";
 
+let msg = "clique";
+
 export default function App() {
-  const [status, setStatus] = useState("não");
+  const handleClick = useCallback((txt) => {
+    window.alert(txt);
+  }, []);
 
   return (
     <div className="App">
-      <p>O botão foi clicado? {status}</p>
       <button
         onClick={() => {
-          setStatus("Sim");
+          handleClick(msg);
         }}
       >
-        Clique
+        Clicar
       </button>
     </div>
   );
